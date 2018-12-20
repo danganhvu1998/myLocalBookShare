@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('point')->default(5);
             $table->integer('type')->default(0);
-            $table->string('image')->default('storage/system/default_image');
+            $table->string('image')->default('storage/system/default_image.jpg');
             $table->rememberToken();
             $table->timestamps();
         });
