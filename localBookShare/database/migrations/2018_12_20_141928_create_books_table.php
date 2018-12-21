@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('quality')->nullable();
             $table->text('intro')->nullable();
             $table->string('image')->nullable();
-            $table->string('language')->default('English');
+            $table->string('language')->default('en');
             $table->timestamps();
         });
     }

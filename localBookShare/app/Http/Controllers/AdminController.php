@@ -14,6 +14,10 @@ class AdminController extends Controller
         $this->middleware(['checkAdmin']);
     }
 
+    public function index(){
+        return view('admins.index');
+    }
+
     public function addBookSite(){
         return view('admins.addBook');
     }
@@ -31,7 +35,24 @@ class AdminController extends Controller
         $book->intro = $request->intro;
         $result =$book->save();
         if($result){
-            return "OK";
+            return redirect("/admin/all_books/1/all")->with("message", "messages.success");
         }
+    }
+
+    public function allBooksSite($page, $language){
+        if($language=="all"){
+            $lang = ["vi", "en", "ja"];
+        } else {
+            $lang = [$language];
+        }
+        $bookNumberDisplace = 30;
+        $books = Book::whereBetween('id', [($page-1)*$bookNumberDisplace+1, $page*$bookNumberDisplace])
+            ->whereIn('language', $lang)
+            ->select("id", "name", "author", "image", "language", "quality")
+            ->get();
+        $data = array(
+            "books" => $books,
+        );
+        return view('admins.allBooks')->with($data);
     }
 }

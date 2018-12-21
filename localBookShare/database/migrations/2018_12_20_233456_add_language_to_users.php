@@ -14,7 +14,7 @@ class AddLanguageToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('language')->default(0);//0: English, 1: Vietnamese, 2: Japanese
+            $table->string('language')->default('en');
         });
     }
 
