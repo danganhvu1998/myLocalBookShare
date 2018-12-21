@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 //************************ ### ************************/\\
 
 ### Admin Route ###
+Route::get('/admin/add_book', 'AdminController@addBookSite');
+Route::post('/admin/add_book', 'AdminController@addBook');

@@ -16,7 +16,7 @@ class checkAdmin
      */
     public function handle($request, Closure $next)
     {   
-        if(Auth::check() and Auth::user()->type==10) return $next($request);
-        return redirect("/home");
+        if(Auth::check() and Auth::user()->type>=10) return $next($request);
+        return back()->withErrors("Permission Denied");
     }
 }

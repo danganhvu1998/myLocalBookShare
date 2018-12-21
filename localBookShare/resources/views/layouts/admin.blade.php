@@ -51,7 +51,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ Auth::user()->image }}" alt="what" height="30" width="30">
+                                    <img src="/{{ Auth::user()->image }}" alt="what" height="30" width="30">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -73,7 +73,24 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 container">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ __($error) }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if(session()->has('message'))
+                <div class="alert alert-success">
+                    {{ __(session()->get('message')) }}
+                </div>
+            @endif
+            
             @yield('content')
         </main>
     </div>
