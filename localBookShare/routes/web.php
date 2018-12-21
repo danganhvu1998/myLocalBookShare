@@ -32,3 +32,9 @@ Route::post('/admin/add_book', 'AdminController@addBook');
 
 Route::get('/admin/all_books/{page}/{language}', 'AdminController@allBooksSite');
 
+Route::get('/admin/edit_book/{book_id}', 'AdminController@editBookSite');
+
+Route::post('/admin/edit_book', 'AdminController@editBook');
+
+
+

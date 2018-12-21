@@ -55,4 +55,25 @@ class AdminController extends Controller
         );
         return view('admins.allBooks')->with($data);
     }
+
+    public function editBookSite($book_id){
+        $book = Book::where('id', $book_id)->first();
+        $data = array(
+            "book" => $book,
+        );
+        return view('admins.editBook')->with($data);
+    }
+
+    public function editBook(request $request){
+        Book::where("id", $request->book_id)
+            ->update([
+                "name" => $request->name,
+                "author" => $request->author,
+                "language" => $request->language,
+                "image" => $request->image,
+                "quality" => $request->quality,
+                "intro" => $request->intro,
+            ]);
+        return redirect("/admin/all_books/1/all")->with("message", "messages.success");
+    }
 }

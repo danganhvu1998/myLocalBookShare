@@ -9,13 +9,15 @@
                         <img src="{{$book->image}}" alt="Book's Image" width="100%">
                     </div>
                     <div class="col-md-8">
-                        <h4><b class="text-info">{{$book->name}}</b></h4>
+                        <a href="/admin/edit_book/{{$book->id}}"> 
+                            <h4><b class="text-info">{{$book->name}}</b></h4>
+                        </a>
                         {{__("messages.author")}}: <b>{{$book->author}}</b><br>
                         <hr>
                         {{__("messages.quality")}}: <b>{{$book->quality}}</b><br>
                         {{__("messages.language")}}: <b>{{$book->language}}</b><br>
                         <hr>
-                        {{__("messages.status")}}: {{$loop->iteration}}
+                        {{__("messages.status")}}:
                     </div>
                 </div>
             </div>
