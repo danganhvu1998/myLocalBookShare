@@ -24,17 +24,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 //************************ ### ************************/\\
 
 ### Admin Route ###
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminBooksController@index');
 
-Route::get('/admin/add_book', 'AdminController@addBookSite');
+Route::get('/admin/add_book', 'AdminBooksController@addBookSite');
 
-Route::post('/admin/add_book', 'AdminController@addBook');
+Route::post('/admin/add_book', 'AdminBooksController@addBook');
 
-Route::get('/admin/all_books/{page}/{language}', 'AdminController@allBooksSite');
+Route::get('/admin/all_books/{page}/{language}', 'AdminBooksController@allBooksSite');
 
-Route::get('/admin/edit_book/{book_id}', 'AdminController@editBookSite');
+Route::get('/admin/edit_book/{book_id}', 'AdminBooksController@editBookSite');
 
-Route::post('/admin/edit_book', 'AdminController@editBook');
+Route::post('/admin/edit_book', 'AdminBooksController@editBook');
 
 
 

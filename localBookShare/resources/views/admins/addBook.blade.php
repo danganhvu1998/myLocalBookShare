@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    {!! Form::open(['action' => 'AdminController@addBook', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'AdminBooksController@addBook', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">{{__('messages.bookName')}}</span>

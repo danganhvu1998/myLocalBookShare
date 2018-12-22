@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Book;
 
-class AdminController extends Controller
+class AdminBooksController extends Controller
 {
     public function __construct()
     {

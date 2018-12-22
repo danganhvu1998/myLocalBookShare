@@ -39,11 +39,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/admin/add_book">{{ __('addBook') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/all">{{ __('allBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/vi">{{ __('vietnameseBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/en">{{ __('englishBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/ja">{{ __('japaneseBooks') }}</a>
+                                    <a class="dropdown-item" href="/admin/add_book">{{ __('messages.addBook') }}</a>
+                                    <a class="dropdown-item" href="/admin/all_books/1/all">{{ __('messages.allBooks') }}</a>
+                                    <a class="dropdown-item" href="/admin/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
+                                    <a class="dropdown-item" href="/admin/all_books/1/en">{{ __('messages.englishBooks') }}</a>
+                                    <a class="dropdown-item" href="/admin/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
                                 </div>
                         </li>
                     </ul>

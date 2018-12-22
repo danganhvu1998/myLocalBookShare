@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    {!! Form::open(['action' => 'AdminController@editBook', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'AdminBooksController@editBook', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <input type="hidden" name="book_id" value="{{$book->id}}">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
