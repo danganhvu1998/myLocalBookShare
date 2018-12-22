@@ -15,7 +15,11 @@
             {{__("messages.language")}}: <b>{{$book->language}}</b><br>
             <hr>
             @if ($book->status)
-                <a href="/reserve/{{$book->id}}" class="btn btn-success">{{__("messages.borrowNow")}}</a>
+                @if (Auth::user()->status==1)
+                    <a href="/reserve/{{$book->id}}" class="btn btn-success">{{__("messages.borrowNow")}}</a>
+                @else
+                    <a href="" class="btn btn-info disabled">{{__("messages.cannotBorrowMore")}}</a>
+                @endif
             @else
                 <a href="" class="btn btn-danger disabled">{{__("messages.notAvailable")}}</a>
             @endif
