@@ -29,6 +29,6 @@ class UsersController extends Controller
                 "language" => $request->language,
                 "image" => $request->image,
             ]);
-        return back()->with("message", "messages.success");;
+        return back()->with("message", "messages.success");
     }
 }

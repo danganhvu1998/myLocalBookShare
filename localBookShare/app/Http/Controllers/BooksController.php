@@ -28,4 +28,12 @@ class BooksController extends Controller
         );
         return view('books.allBooks')->with($data);
     }
+
+    public function detailBookSite($book_id){
+        $book = Book::where("id", $book_id)->first();
+        $data = array(
+            "book" => $book,
+        );
+        return view('books.detailBook')->with($data);
+    }
 }

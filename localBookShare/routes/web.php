@@ -22,12 +22,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 ### Users Route ###
 
 # Users Controller
-
 Route::get('my_info/edit', "UsersController@editInformationsSite");
 
 Route::post('my_info/edit', "UsersController@editInformations");
 
+# Books Controller
 Route::get('all_books/{page}/{language}', 'BooksController@allBooksSite');
+
+Route::get('detail_book/{book_id}', "BooksController@detailBookSite");
+
+# Reservations Controller
+Route::get('reserve/{book_id}', 'ReservationsController@reserveBook');
+
+Route::get('cancel_reserve', 'ReservationsController@cancelReserveBook');
+
+Route::get('reserving_info', "ReservationsController@reservingInfoSite");
 
 //************************ ### ************************/\\
 

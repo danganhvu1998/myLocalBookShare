@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span>BOOKS</span>
+                                    <span>{{ __('messages.adminControlBooks') }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -45,6 +45,21 @@
                                     <a class="dropdown-item" href="/admin/all_books/1/en">{{ __('messages.englishBooks') }}</a>
                                     <a class="dropdown-item" href="/admin/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
                                 </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <span>{{ __('messages.books') }}</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/all_books/1/all">{{ __('messages.allBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/en">{{ __('messages.englishBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/reserving_info" class="nav-link">{{ __('messages.reservingBook') }}</a>
                         </li>
                     </ul>
 
