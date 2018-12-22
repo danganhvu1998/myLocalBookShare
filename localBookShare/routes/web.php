@@ -21,9 +21,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 ### Users Route ###
 
+# Users Controller
+
+Route::get('my_info/edit', "UsersController@editInformationsSite");
+
+Route::post('my_info/edit', "UsersController@editInformations");
+
 //************************ ### ************************/\\
 
 ### Admin Route ###
+
+# Books Controller
 Route::get('/admin', 'AdminBooksController@index');
 
 Route::get('/admin/add_book', 'AdminBooksController@addBookSite');

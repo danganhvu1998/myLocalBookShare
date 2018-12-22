@@ -19,7 +19,7 @@ class AdminBooksController extends Controller
     }
 
     public function addBookSite(){
-        return view('admins.addBook');
+        return view('admins.books.addBook');
     }
 
     public function addBook(request $request){
@@ -53,7 +53,7 @@ class AdminBooksController extends Controller
         $data = array(
             "books" => $books,
         );
-        return view('admins.allBooks')->with($data);
+        return view('admins.books.allBooks')->with($data);
     }
 
     public function editBookSite($book_id){
@@ -61,7 +61,7 @@ class AdminBooksController extends Controller
         $data = array(
             "book" => $book,
         );
-        return view('admins.editBook')->with($data);
+        return view('admins.books.editBook')->with($data);
     }
 
     public function editBook(request $request){
