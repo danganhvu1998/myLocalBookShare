@@ -33,7 +33,7 @@ class AdminReservationsController extends Controller
     }
 
     public function checkReservationByCode(request $request){
-        if(strpos("/", $request->reservation_code) === false){
+        if(!strpos($request->reservation_code, "/")){
             return redirect("/admin/check_reservation_code")->withErrors("message.notFound");
         }
         return redirect("/admin/check_reservation_code/".$request->reservation_code);
