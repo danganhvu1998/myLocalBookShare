@@ -27,6 +27,8 @@ Route::get('my_info/edit', "UsersController@editInformationsSite");
 
 Route::post('my_info/edit', "UsersController@editInformations");
 
+Route::get('all_books/{page}/{language}', 'BooksController@allBooksSite');
+
 //************************ ### ************************/\\
 
 ### Admin Route ###
