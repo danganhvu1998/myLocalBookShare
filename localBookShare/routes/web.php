@@ -55,5 +55,11 @@ Route::get('/admin/edit_book/{book_id}', 'AdminBooksController@editBookSite');
 
 Route::post('/admin/edit_book', 'AdminBooksController@editBook');
 
+# Reservations Controller
+Route::get('/admin/check_reservation_code', 'AdminReservationsController@checkReservationByCodeSite');
+
+Route::get('/admin/check_reservation_code/{book_id}/{code}', 'AdminReservationsController@checkReservationSite');
+
+Route::post('/admin/check_reservation_code', 'AdminReservationsController@checkReservationByCode');
 
 

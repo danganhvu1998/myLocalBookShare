@@ -4,7 +4,9 @@
     @if ($reservation==NULL or $reservation->status==2)
         <h1>You Are Not Reserving Any Book!</h1>
     @else
+        <h3 class="text-center">{{__("messages.code")}}: <b class="bg-info"> {{$book->id}}/{{$reservation->borrow_time}} </b></h3>
         <br><br>
+        <hr>
         <div class="row">
             <div class="col-md-3">
                 <img src="{{$book->image}}" alt="Book's Image" width="100%">
