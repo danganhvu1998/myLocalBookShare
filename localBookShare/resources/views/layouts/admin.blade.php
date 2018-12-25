@@ -44,6 +44,8 @@
                                     <a class="dropdown-item" href="/admin/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
                                     <a class="dropdown-item" href="/admin/all_books/1/en">{{ __('messages.englishBooks') }}</a>
                                     <a class="dropdown-item" href="/admin/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
+                                    <a class="dropdown-item" href="/admin/check_reservation_code">{{ __('messages.checkCode') }}</a>
+                                    
                                 </div>
                         </li>
                         <li class="nav-item dropdown">

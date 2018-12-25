@@ -60,6 +60,8 @@ Route::get('/admin/check_reservation_code', 'AdminReservationsController@checkRe
 
 Route::get('/admin/check_reservation_code/{book_id}/{code}', 'AdminReservationsController@checkReservationSite');
 
+Route::post('/admin/check_reservation_code/result', 'AdminReservationsController@checkReservationByCodeResult');
+
 Route::post('/admin/check_reservation_code', 'AdminReservationsController@checkReservationByCode');
 
 

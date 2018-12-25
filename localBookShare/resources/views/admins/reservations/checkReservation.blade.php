@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
+    {!! Form::open(['action' => 'AdminReservationsController@checkReservationByCode', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="input-group mb-3">
+            <input type="text" name="reservation_code" class="form-control">
+            {{Form::submit(__('messages.check'), ['class' => 'btn btn-outline-primary'])}}
+        </div>
+        
+    {!! Form::close() !!}
+    <br><hr><br>
     <div class="row">
         <div class="col-md-5 text-center">
             <img src="{{$book->image}}" alt="{{$book->name}}" width="100%">
@@ -50,8 +58,14 @@
                     @endif
                 @endif
             </h4>
-            <a href="" class="btn btn-warning"><b>DONE</b></a><br><br>
-            
+            {!! Form::open(['action' => 'AdminReservationsController@checkReservationByCodeResult', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                <input type="hidden" value="{{$reservation->id}}" name="reservation_id">
+                <div class="input-group mb-3">
+                    <input type="text" name="result" class="form-control" placeholder="ACCEPT / DECLINE">
+                    {{Form::submit(__('messages.confirm'), ['class' => 'btn btn-success'])}}
+                </div>
+            {!! Form::close() !!}
+            <br>
             <h5 class="text-info"><b>###*** END_IMPORTANT ***###</b></h5>
         </div>
     </div>
