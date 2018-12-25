@@ -35,6 +35,36 @@
             </div>
         </div>
         <hr>
+        @if ($reservation->status==0)
+            <h4 class="text-center"><b class="text-primary">{{__("messages.doYouWantToDonate")}}?</b></h4>
+            <div class="row text-center">
+                <div class="col-md-7">
+                    {{__("messages.donateThisTime")}} <b class="text-danger">{{$reservation->donate_money}}￥</b> <br>
+                    @if ($reservation->donate_money>0)
+                        (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ <b>{{__("messages.weThankYou")}}</b>✧ﾟ･: *ヽ(◕ヮ◕ヽ)
+                    @endif
+                    <hr>
+                    <span class="text-muted">{{__("messages.thisIsOptional_AlwayCanChangeBeForeReceveBook")}}</span>
+                </div>
+                <div class="col-md-5">
+                    {!! Form::open(['action' => 'ReservationsController@reservingDonation', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                        <span class="text-info"><b>{{__("messages.IWantToDonte  ")}}</b></span>
+                        <div class="input-group mb-3">
+                            <input type="number" name="donate_money" class="form-control" max="5000" min="0" placeholder="0-5000"> 
+                            <span class="input-group-text">￥</span>
+                            {{Form::submit(__('messages.accept'), ['class' => 'btn btn-success'])}}
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        @else
+            <div class="text-center">
+                {{__("messages.youDonatedThisTime")}} <b class="text-danger">{{$reservation->donate_money}}￥</b> <br>
+                @if ($reservation->donate_money>0)
+                    (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ <b>{{__("messages.weThankYou")}}</b>✧ﾟ･: *ヽ(◕ヮ◕ヽ)
+                @endif
+            </div>
+        @endif
     @endif
 
 @endsection

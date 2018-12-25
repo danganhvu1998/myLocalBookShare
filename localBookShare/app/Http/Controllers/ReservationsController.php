@@ -98,4 +98,19 @@ class ReservationsController extends Controller
         );
         return view("reservations.reservingInfo")->with($data);
     }
+
+    public function reservingDonation(request $request){
+        $reservation = Reservation::where("user_id", Auth::user()->id)
+            ->where("status", 0)
+            ->first();
+        if($reservation==NULL){
+            return back()->withErrors("messages.invalid");
+        } else {
+            Reservation::where("id", $reservation->id)
+                ->update([
+                    "donate_money" => $request->donate_money,
+                ]);
+                return back()->with("message", "messages.thankForYourKindness");
+        }
+    }
 }

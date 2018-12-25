@@ -38,6 +38,8 @@ Route::get('cancel_reserve', 'ReservationsController@cancelReserveBook');
 
 Route::get('reserving_info', "ReservationsController@reservingInfoSite");
 
+Route::post('reserving/donation', "ReservationsController@reservingDonation");
+
 //************************ ### ************************/\\
 
 ### Admin Route ###
