@@ -31,7 +31,8 @@ class ReservationsController extends Controller
         if(Auth::user()->point>9){
             $reservation->borrow_money = 0;
         } else {
-            $reservation->borrow_money = 1000;
+            #$reservation->borrow_money = 1000;
+            $reservation->borrow_money = 0;
         }
         $reservation->book_id = $book_id;
         $reservation->user_id = Auth::user()->id;
