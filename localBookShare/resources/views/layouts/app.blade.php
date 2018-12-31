@@ -23,8 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/admin') }}">
-                    Local Book Share - Admin
+                <a class="navbar-brand" href="{{ url('/all_books/1/all') }}">
+                    Local Book Share - Beta
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,17 +34,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span>BOOKS</span>
-                                </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <span>{{ __('messages.books') }}</span>
+                            </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/admin/add_book">{{ __('messages.addBook') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/all">{{ __('messages.allBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/en">{{ __('messages.englishBooks') }}</a>
-                                    <a class="dropdown-item" href="/admin/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
-                                </div>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/all_books/1/all">{{ __('messages.allBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/en">{{ __('messages.englishBooks') }}</a>
+                                <a class="dropdown-item" href="/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
+                            </div>
                         </li>
                     </ul>
 
@@ -61,9 +60,16 @@
                                 </li>
                             @endif
                         @else
+                            @if (Auth::user()->status == 0)
+                                <li class="nav-item">
+                                    <a href="/reserving_info" class="nav-link">
+                                        {{ __('messages.reservingBook') }}<b class="text-danger">(1)</b>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="/{{ Auth::user()->image }}" alt="what" height="30" width="30">
+                                    <img src="{{ Auth::user()->image }}" alt="what" height="30" width="30">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -71,8 +77,9 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('messages.logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="/my_info/edit">{{ __('messages.editInfo') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -104,6 +111,13 @@
             @endif
             
             @yield('content')
+            <br><br><br><br><br><br>
+            <hr>
+            <br><br>
+            <div class="text-center text-info">
+                {{__("messages.currentlyBetaVersion")}} <br>
+                <a href="/contact">{{__("messages.contactMe")}}</a>
+            </div>
         </main>
     </div>
 </body>

@@ -87,12 +87,13 @@ class ReservationsController extends Controller
 
     public function reservingInfoSite(){
         $reservation = Reservation::where("user_id", Auth::user()->id)
+            ->where("status", "<", 2)
             ->orderBy("id", "desc")
             ->first();
-        $book = 0;
-        if($reservation!=NULL){ 
-            $book = Book::where("id", $reservation->book_id)->first();
+        if($reservation==NULL){
+            return redirect("/all_books/1/all");
         }
+        $book = Book::where("id", $reservation->book_id)->first();
         $data = array(
             "reservation" => $reservation,
             "book" => $book,
@@ -111,7 +112,7 @@ class ReservationsController extends Controller
                 ->update([
                     "donate_money" => $request->donate_money,
                 ]);
-                return back()->with("message", "messages.thankForYourKindness");
+            return back()->with("message", "messages.thankForYourKindness");
         }
     }
 }

@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+#Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/contact', 'HomeController@contactInformation')->name('contact');
 
 ### Users Route ###
 
@@ -39,6 +41,8 @@ Route::get('cancel_reserve', 'ReservationsController@cancelReserveBook');
 Route::get('reserving_info', "ReservationsController@reservingInfoSite");
 
 Route::post('reserving/donation', "ReservationsController@reservingDonation");
+
+# Reservation Controller
 
 //************************ ### ************************/\\
 

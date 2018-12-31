@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
     @if ($reservation==NULL or $reservation->status==2)
@@ -22,8 +22,9 @@
                 <hr>
                 @if ($reservation->status==0)
                     <p><b class="text-info">{{__("messages.5DayContact")}}</b></p>
+                    <a href="/contact" class="btn btn-success btn-block">{{__("messages.contactMe")}}</a>
                     <p>{{__("messages.or")}}</p>
-                    <a href="/cancel_reserve" class="btn btn-danger">{{__("messages.cancelReserve")}}</a>
+                    <a href="/cancel_reserve" class="btn btn-danger btn-block">{{__("messages.cancelReserve")}}</a>
                 @else
                     <b class="text-info">{{__("messages.borrowedAt")}} </b>
                     <b class="text-danger">{{$reservation->created_at}}</b>
