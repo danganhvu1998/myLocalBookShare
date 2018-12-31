@@ -19,9 +19,9 @@ class languagesSetting
     {
         if(!Auth::check()){
             App::setLocale("en");
-        } else if(Auth::user()->language == 0){
+        } else if(Auth::user()->language == "en"){
             App::setLocale("en");
-        } else if(Auth::user()->language == 1){
+        } else if(Auth::user()->language == "vi"){
             App::setLocale("vi");
         } else {
             App::setLocale("ja");

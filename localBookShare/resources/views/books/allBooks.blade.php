@@ -17,15 +17,19 @@
                         {{__("messages.quality")}}: <b>{{$book->quality}}</b><br>
                         {{__("messages.language")}}: <b>{{$book->language}}</b><br>
                         <hr>
-                        @if ($book->status)
-                            @if (Auth::user()->status==1)
-                                <a href="/reserve/{{$book->id}}" class="btn btn-success">{{__("messages.borrowNow")}}</a>
+                        @guest
+                            <a href="" class="btn btn-success disabled">{{__("messages.loginToBorrow")}}</a>
+                        @else    
+                            @if ($book->status)
+                                @if (Auth::user()->status==1)
+                                    <a href="/reserve/{{$book->id}}" class="btn btn-success">{{__("messages.borrowNow")}}</a>
+                                @else
+                                    <a href="" class="btn btn-info disabled">{{__("messages.cannotBorrowMore")}}</a>
+                                @endif
                             @else
-                                <a href="" class="btn btn-info disabled">{{__("messages.cannotBorrowMore")}}</a>
+                                <a href="" class="btn btn-danger disabled">{{__("messages.notAvailable")}}</a>
                             @endif
-                        @else
-                            <a href="" class="btn btn-danger disabled">{{__("messages.notAvailable")}}</a>
-                        @endif
+                        @endguest
                     </div>
                     <div class="col-md-6">
                         {{$book->intro}}

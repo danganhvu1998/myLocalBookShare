@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/all_books/1/all");
 });
 
 Auth::routes();

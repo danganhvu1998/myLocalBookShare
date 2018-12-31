@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-md-5">
                     {!! Form::open(['action' => 'ReservationsController@reservingDonation', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                        <span class="text-info"><b>{{__("messages.IWantToDonte  ")}}</b></span>
+                        <span class="text-info"><b>{{__("messages.IWantToDonte")}}</b></span>
                         <div class="input-group mb-3">
                             <input type="number" name="donate_money" class="form-control" max="5000" min="0" placeholder="0-5000"> 
                             <span class="input-group-text">￥</span>

@@ -107,6 +107,8 @@ class ReservationsController extends Controller
             ->first();
         if($reservation==NULL){
             return back()->withErrors("messages.invalid");
+        } else if($request->donate_money<0){
+            return back()->withErrors("messages.invalid");
         } else {
             Reservation::where("id", $reservation->id)
                 ->update([
