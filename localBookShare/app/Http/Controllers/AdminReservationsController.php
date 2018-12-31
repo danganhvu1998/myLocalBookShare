@@ -16,6 +16,20 @@ class AdminReservationsController extends Controller
         $this->middleware(['checkAdmin']);
     }
 
+    public function removeOverDueReservation(){
+        $_7DaysToSec = 604800;
+        #$_7DaysToSec = 100;
+        $_7DaysAgoTime = time()- $_7DaysToSec;
+        $reservations = Reservation::where("borrow_time", "<", $_7DaysAgoTime)
+        ->where("status", 0)
+        ->get();
+        foreach($reservations as $reservation){
+            $this->declineReservation($reservation);
+        }
+        return $reservations;
+        #return "OK";
+    }
+
     public function checkReservationSite($book_id, $code){
         $reservation = Reservation::where("borrow_time", $code)
             ->where("book_id", $book_id)
@@ -33,6 +47,7 @@ class AdminReservationsController extends Controller
     }
 
     public function checkReservationByCode(request $request){
+        $this->removeOverDueReservation();
         if(!strpos($request->reservation_code, "/")){
             return redirect("/admin/check_reservation_code")->withErrors("message.notFound");
         }

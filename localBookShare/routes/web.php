@@ -66,4 +66,6 @@ Route::post('/admin/check_reservation_code/result', 'AdminReservationsController
 
 Route::post('/admin/check_reservation_code', 'AdminReservationsController@checkReservationByCode');
 
+Route::get("/admin/over_due_reservations_delete", "AdminReservationsController@removeOverDueReservation");
+
 
