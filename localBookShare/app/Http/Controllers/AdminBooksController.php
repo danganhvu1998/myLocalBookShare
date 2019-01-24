@@ -46,12 +46,19 @@ class AdminBooksController extends Controller
             $lang = [$language];
         }
         $bookNumberDisplace = 30;
+        if($page<1) $page=1;
+
         $books = Book::whereBetween('id', [($page-1)*$bookNumberDisplace+1, $page*$bookNumberDisplace])
             ->whereIn('language', $lang)
             ->select("id", "name", "author", "image", "language", "quality")
             ->get();
+        if(!sizeof($books)){
+            return redirect("/all_books/1/".$language);
+        }
         $data = array(
             "books" => $books,
+            "pageNum" => $page,
+            "language" => $language,
         );
         return view('admins.books.allBooks')->with($data);
     }

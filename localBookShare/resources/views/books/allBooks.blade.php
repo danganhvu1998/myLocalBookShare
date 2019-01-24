@@ -39,19 +39,18 @@
             </div><hr><div class="row">
         @endforeach
     </div>
-    <div class="row">
-        <div class="col-lg-10 text-center">
-            <a href="/all_books/1/{{$language}}" class="btn btn-primary">1</a>
-            <div class="btn-group">
-                <a href="/all_books/{{$pageNum-2}}/{{$language}}" class="btn btn-primary"><<</a>
-                <a href="/all_books/{{$pageNum-1}}/{{$language}}" class="btn btn-primary"><</a>
-                <a class="btn btn-info"><b>Current Page: {{$pageNum}}</b></a>
-                <a href="/all_books/{{$pageNum+1}}/{{$language}}" class="btn btn-primary">></a>
-                <a href="/all_books/{{$pageNum+2}}/{{$language}}" class="btn btn-primary">>></a>
-                <a href="/all_books/{{$pageNum+5}}/{{$language}}" class="btn btn-primary">+5 Pages</a>
-                <a href="/all_books/{{$pageNum+10}}/{{$language}}" class="btn btn-primary">+10 Pages</a>
-            </div>
-        </div> 
-    </div>
+    <br><br>
+    <div class="col-lg-10 text-center">
+        <a href="/all_books/1/{{$language}}" class="btn btn-primary">1</a>
+        <div class="btn-group">
+            <a href="/all_books/{{$pageNum-2}}/{{$language}}" class="btn btn-primary"><<</a>
+            <a href="/all_books/{{$pageNum-1}}/{{$language}}" class="btn btn-primary"><</a>
+            <a class="btn btn-info"><b>Current Page: {{$pageNum}}</b></a>
+            <a href="/all_books/{{$pageNum+1}}/{{$language}}" class="btn btn-primary">></a>
+            <a href="/all_books/{{$pageNum+2}}/{{$language}}" class="btn btn-primary">>></a>
+            <a href="/all_books/{{$pageNum+5}}/{{$language}}" class="btn btn-primary">+5 Pages</a>
+            <a href="/all_books/{{$pageNum+10}}/{{$language}}" class="btn btn-primary">+10 Pages</a>
+        </div>
+    </div> 
 
 @endsection
