@@ -16,11 +16,17 @@ class BooksController extends Controller
             $lang = [$language];
         }
         $bookNumberDisplace = 15;
+        if($page<1) $page=1;
         $books = Book::whereBetween('id', [($page-1)*$bookNumberDisplace+1, $page*$bookNumberDisplace])
             ->whereIn('language', $lang)
             ->get();
+        if(!sizeof($books)){
+            return redirect("/all_books/1/".$language);
+        }
         $data = array(
             "books" => $books,
+            "pageNum" => $page,
+            "language" => $language,
         );
         return view('books.allBooks')->with($data);
     }
