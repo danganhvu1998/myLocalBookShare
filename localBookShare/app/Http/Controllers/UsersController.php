@@ -31,4 +31,30 @@ class UsersController extends Controller
             ]);
         return back()->with("message", "messages.success");
     }
+
+    public function editPassword(request $request){
+        $request->validate([
+            'curr_pass' => 'required',
+            're_new_pass' => 'required|min:6',
+            'new_pass' => 'required|min:6',
+        ]);
+
+        if($request->new_pass != $request->re_new_pass){
+            return back()->withErrors("messages.newPassDoesNotMatch");
+        }
+
+        if(!Hash::check($request->curr_pass, Auth::user()->password)){
+            return back()->withErrors("messages.wrongPassword");
+        }
+        // Working on return error if oldPassword is wrong
+
+        $userID = Auth::user()->id;
+        User::where("id", $userID)
+            ->update([
+                "password" => Hash::make($request->new_pass)
+            ]);
+        return back()->with("message", "messages.success");
+
+    }
+
 }

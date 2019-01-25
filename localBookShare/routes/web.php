@@ -28,6 +28,8 @@ Route::get('my_info/edit', "UsersController@editInformationsSite");
 
 Route::post('my_info/edit', "UsersController@editInformations");
 
+Route::post('my_info/edit_password', "UsersController@editPassword");
+
 # Books Controller
 Route::get('all_books/{page}/{language}', 'BooksController@allBooksSite');
 
