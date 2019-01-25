@@ -52,7 +52,7 @@ class AdminBooksController extends Controller
             ->whereIn('language', $lang)
             ->get();
         if(!sizeof($books)){
-            return redirect("/all_books/1/".$language);
+            return redirect("/admin/all_books/1/".$language);
         }
         $data = array(
             "books" => $books,

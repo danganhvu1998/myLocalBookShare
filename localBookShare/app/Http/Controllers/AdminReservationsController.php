@@ -47,7 +47,6 @@ class AdminReservationsController extends Controller
     }
 
     public function checkReservationByCode(request $request){
-        $this->removeOverDueReservation();
         if(!strpos($request->reservation_code, "/")){
             return redirect("/admin/check_reservation_code")->withErrors("message.notFound");
         }
@@ -55,7 +54,20 @@ class AdminReservationsController extends Controller
     }
 
     public function checkReservationByCodeSite(){
-        return view("admins.reservations.inputCode");
+        $this->removeOverDueReservation();
+        $currReservations = Reservation::where("reservations.status", 1)
+            ->join("users", "users.id", "=", "reservations.user_id")
+            ->join("books", "books.id", "=", "reservations.book_id")
+            ->select("reservations.*", "books.name as book_name", "books.image as book_image", "users.name as user_name", "users.email", "users.image as user_image")
+            ->get();
+        $_20DaysToSec = 3600*24*20;
+        $timeCheck = time()-$_20DaysToSec;
+        $data = array(
+            "currReservations" => $currReservations,
+            "timeCheck" => $timeCheck,
+        );
+        #return $data;
+        return view("admins.reservations.inputCode")->with($data);
     }
 
     public function reservationNextStatus($reservation){
