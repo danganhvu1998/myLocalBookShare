@@ -74,4 +74,7 @@ Route::post('/admin/check_reservation_code', 'AdminReservationsController@checkR
 
 Route::get("/admin/over_due_reservations_delete", "AdminReservationsController@removeOverDueReservation");
 
+# User Controller
+Route::get("/admin/all_users", "AdminUsersController@allUsersSite");
 
+Route::post("/admin/edit_users/reset_password", "AdminUsersController@resetPassword");

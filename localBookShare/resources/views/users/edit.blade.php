@@ -32,19 +32,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">{{__('messages.currentPassword')}}</span>
                     </div>
-                    <input type="text" name="curr_pass" placeholder="{{__('messages.currentPassword')}}" class="form-control">
+                    <input type="password" name="curr_pass" placeholder="{{__('messages.currentPassword')}}" class="form-control">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">{{__('messages.newPassword')}}</span>
                     </div>
-                    <input minlength="6" type="text" name="new_pass" placeholder="{{__('messages.newPassword')}}" class="form-control">
+                    <input minlength="6" type="password" name="new_pass" placeholder="{{__('messages.newPassword')}}" class="form-control">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">{{__('messages.reNewPassword')}}</span>
                     </div>
-                    <input minlength="6" type="text" name="re_new_pass" placeholder="{{__('messages.reNewPassword')}}" class="form-control">
+                    <input minlength="6" type="password" name="re_new_pass" placeholder="{{__('messages.reNewPassword')}}" class="form-control">
                 </div>
                 {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
             {!! Form::close() !!}
