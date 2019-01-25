@@ -55,7 +55,7 @@ return [
     'reNewPassword' => 'Nhập Lại Mật Khẩu',
     'newPassword' => 'Mật Khẩu Mới',
     'currentPassword' => 'Mật Khẩu Hiện Tại',
-    '' => '',
+    'status' => 'Tình Trạng',
     '' => '',
     '' => '',
     '' => '',

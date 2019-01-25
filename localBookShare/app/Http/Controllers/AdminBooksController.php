@@ -50,7 +50,6 @@ class AdminBooksController extends Controller
 
         $books = Book::whereBetween('id', [($page-1)*$bookNumberDisplace+1, $page*$bookNumberDisplace])
             ->whereIn('language', $lang)
-            ->select("id", "name", "author", "image", "language", "quality")
             ->get();
         if(!sizeof($books)){
             return redirect("/all_books/1/".$language);

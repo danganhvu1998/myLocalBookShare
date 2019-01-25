@@ -55,7 +55,7 @@ return [
     'reNewPassword' => 'Re enter new password',
     'newPassword' => 'New Password',
     'currentPassword' => 'Current Password',
-    '' => '',
+    'status' => 'Status',
     '' => '',
     '' => '',
     '' => '',
