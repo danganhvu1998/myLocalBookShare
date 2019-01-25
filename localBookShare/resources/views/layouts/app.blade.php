@@ -72,8 +72,10 @@
                                     <img src="{{ Auth::user()->image }}" alt="what" height="30" width="30">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if (Auth::user()->type > 79)
+                                        <a class="dropdown-item" href="/admin/all_books/1/all">Admin Site</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

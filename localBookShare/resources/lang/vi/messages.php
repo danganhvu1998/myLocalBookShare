@@ -56,6 +56,8 @@ return [
     'newPassword' => 'Mật Khẩu Mới',
     'currentPassword' => 'Mật Khẩu Hiện Tại',
     'status' => 'Tình Trạng',
+    'allUsers' => 'Người Dùng',
+    'resetPassword' => 'Reset Mật Khẩu',
     '' => '',
     '' => '',
     '' => '',

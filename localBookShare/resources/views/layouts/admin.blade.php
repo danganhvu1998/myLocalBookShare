@@ -50,6 +50,9 @@
                             <a class="nav-link" href="/admin/check_reservation_code">{{ __('messages.checkCode') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/admin/all_users">{{ __('messages.allUsers') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/all_books/1/all">{{ __('messages.allBooks') }}</a>
                         </li>
                     </ul>
