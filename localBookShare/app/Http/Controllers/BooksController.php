@@ -17,8 +17,9 @@ class BooksController extends Controller
         }
         $bookNumberDisplace = 15;
         if($page<1) $page=1;
-        $books = Book::whereBetween('id', [($page-1)*$bookNumberDisplace+1, $page*$bookNumberDisplace])
-            ->whereIn('language', $lang)
+        $books = Book::whereIn('language', $lang)
+            ->skip($bookNumberDisplace*($page-1))
+            ->take($bookNumberDisplace)
             ->get();
         if(!sizeof($books)){
             return redirect("/all_books/1/".$language);
