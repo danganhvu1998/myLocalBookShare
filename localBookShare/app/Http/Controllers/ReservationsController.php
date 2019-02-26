@@ -43,7 +43,7 @@ class ReservationsController extends Controller
     }
 
     public function reserveBook($book_id){
-        return redirect("/all_books/1/all")->withErrors("Chức năng tạm đóng đến khi mình quay trở lại Nhật Bản ngày 1 tháng 3 2019 :) Thân!");
+        #return redirect("/all_books/1/all")->withErrors("Chức năng tạm đóng đến khi mình quay trở lại Nhật Bản ngày 1 tháng 3 2019 :) Thân!");
         if(Auth::user()->status==0){
             return back()->withErrors("messages.reserveFailBecauseAlreadyReservingBook");
         }
