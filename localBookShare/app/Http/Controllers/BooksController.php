@@ -15,7 +15,7 @@ class BooksController extends Controller
         } else {
             $lang = [$language];
         }
-        $bookNumberDisplace = 42;
+        $bookNumberDisplace = 30;
         if($page<1) $page=1;
         $books = Book::whereIn('language', $lang)
             ->skip($bookNumberDisplace*($page-1))

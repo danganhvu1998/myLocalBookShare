@@ -116,9 +116,31 @@
             <br><br><br><br><br><br>
             <hr>
             <br><br>
-            <div class="text-center text-info">
-                {{__("messages.currentlyBetaVersion")}} <br>
-                <a href="/contact">{{__("messages.contactMe")}}</a>
+            <div class="row">
+                <div class="text-center text-info col-md-4">
+                    {{__("messages.currentlyBetaVersion")}} <br>
+                    <a href="/contact">{{__("messages.contactMe")}}</a>
+                </div>
+                <div class="col-md-8">
+                    <ul>
+                        <b>Place to receive book | Nơi nhận sách | 本を貰う場所</b>
+                        <li>Dormy Kawaguchi - 1 Chome-5-１２ Sakaechō, Kawaguchi-shi, Saitama-ken
+                            <a target="_blank" href="https://www.google.com/maps/place/Dormy+Kawaguchi/@35.8033652,139.7284405,15z/data=!4m5!3m4!1s0x0:0xe6da61b437052809!8m2!3d35.8033652!4d139.7284405">
+                                <b>Google Map</b>
+                            </a>
+                        </li>
+                        <li>INIAD Toyo University - 1 Chome-7-11 Akabanedai, Kita-ku, Tōkyō-to 
+                            <a target="_blank" href="https://www.google.com/maps/place/INIAD+%E8%B5%A4%E7%BE%BD%E5%8F%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9/@35.7802503,139.713406,17z/data=!3m1!4b1!4m5!3m4!1s0x6018931eb45983f7:0x620ef08f425b6925!8m2!3d35.780246!4d139.7156">
+                                <b>Google Map</b>
+                            </a>
+                        </li>
+                        <li>Toyo University Hakusan Campus - 5 Chome-28-２０ Hakusan, Bunkyō-ku, Tōkyō-to
+                            <a target="_blank" href="https://www.google.com/maps/place/Toyo+University+Hakusan+Campus/@35.7235951,139.7474811,17z/data=!3m1!4b1!4m5!3m4!1s0x60188db7b2c0766d:0xe80e1b6e1bac88a5!8m2!3d35.7235908!4d139.7496751">
+                                <b>Google Map</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>
