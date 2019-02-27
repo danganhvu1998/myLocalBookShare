@@ -5,7 +5,7 @@
         @foreach ($books as $book)
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5" >
                         <img src="{{$book->image}}" alt="Book's Image" width="100%">
                     </div>
                     <div class="col-md-7">
@@ -31,6 +31,9 @@
                     </div>
                 </div>
             </div>
+            @if ($loop->index%3==2)
+                </div><hr><div class="row">
+            @endif
         @endforeach
     </div>
     <br><br>
