@@ -3,18 +3,16 @@
 @section('content')
     <div class="row">
         @foreach ($books as $book)
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <img src="{{$book->image}}" alt="Book's Image" width="100%">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-7">
                         <a href="/detail_book/{{$book->id}}"> 
                             <h4><b class="text-info">{{$book->name}}</b></h4>
                         </a>
                         {{__("messages.author")}}: <b>{{$book->author}}</b><br>
-                        <hr>
-                        {{__("messages.quality")}}: <b>{{$book->quality}}</b><br>
                         {{__("messages.language")}}: <b>{{$book->language}}</b><br>
                         <hr>
                         @guest
@@ -31,12 +29,8 @@
                             @endif
                         @endguest
                     </div>
-                    <div class="col-md-6">
-                        {{$book->intro}}
-                    </div>
                 </div>
             </div>
-            </div><hr><div class="row">
         @endforeach
     </div>
     <br><br>
