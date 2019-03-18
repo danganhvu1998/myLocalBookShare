@@ -39,4 +39,8 @@ class BooksController extends Controller
         );
         return view('books.detailBook')->with($data);
     }
+
+    public function aboutSite(){
+        return view('books.about');
+    }
 }

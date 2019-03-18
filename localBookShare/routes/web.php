@@ -35,6 +35,8 @@ Route::get('all_books/{page}/{language}', 'BooksController@allBooksSite');
 
 Route::get('detail_book/{book_id}', "BooksController@detailBookSite");
 
+Route::get('about', "BooksController@aboutSite");
+
 # Reservations Controller
 Route::get('reserve/{book_id}', 'ReservationsController@reserveBook');
 

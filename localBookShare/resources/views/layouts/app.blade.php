@@ -21,10 +21,28 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <div class="text-center bg-light">
+            <a href="/about">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="/images/needHelp.jpg" alt="" height="100" width="100%">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/givebook.png" alt="" height="100" width="100%">
+                    </div>
+                    <div class="col-md-2">
+                        <img src="/images/giveBook.jpg" alt="" height="100" width="100%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src="/images/needDesigner.png" alt="" height="100" width="100%">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/all_books/1/all') }}">
-                    Local Book Share - Beta
+                    Local Book Share - We lend books for free!
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -117,11 +135,16 @@
             <hr>
             <br><br>
             <div class="row">
-                <div class="text-center text-info col-md-4">
-                    {{__("messages.currentlyBetaVersion")}} <br>
+                <div class="text-center col-sm-4">
                     <a href="/contact">{{__("messages.contactMe")}}</a>
+                    <br>
+                    <img src="/system/contact_line.ico" alt="" height="30" width="30"> 
+                    <span>ID: duongtinhvu</span> 
+                    <br>
+                    <img src="/system/contact_email.png" alt="" height="30" width="30">  <span>danganhvu1998@gmail.com</span>
+                    <br>
                 </div>
-                <div class="col-md-8">
+                <div class="col-sm-8">
                     <ul>
                         <b>Place to receive book | Nơi nhận sách | 本を貰う場所</b>
                         <li>Dormy Kawaguchi - 1 Chome-5-１２ Sakaechō, Kawaguchi-shi, Saitama-ken
