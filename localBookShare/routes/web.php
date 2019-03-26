@@ -37,6 +37,9 @@ Route::get('detail_book/{book_id}', "BooksController@detailBookSite");
 
 Route::get('about', "BooksController@aboutSite");
 
+# Comments Controller
+Route::post('add_comment', "CommentsController@addComment");
+
 # Reservations Controller
 Route::get('reserve/{book_id}', 'ReservationsController@reserveBook');
 

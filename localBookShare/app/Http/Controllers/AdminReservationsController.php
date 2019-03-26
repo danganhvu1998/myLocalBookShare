@@ -92,7 +92,7 @@ class AdminReservationsController extends Controller
             } else {
                 User::where("id", $reservation->user_id)
                     ->update([
-                        "point" => max(0, $user->point-5),
+                        "point" => max(0, $user->point-2),
                     ]);
             }
         }

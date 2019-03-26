@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Book;
+use App\Comment;
+use App\User;
 
 class BooksController extends Controller
 {
@@ -34,8 +36,24 @@ class BooksController extends Controller
 
     public function detailBookSite($book_id){
         $book = Book::where("id", $book_id)->first();
+        $comments = Comment::where("book_id", $book_id)
+            ->join("users", "users.id", "=", "comments.user_id")
+            ->select("comments.*", "users.name", "users.image")
+            ->orderBy('id', 'desc')
+            ->limit(20)
+            ->get();
+        $adminComment = Comment::where("book_id", $book_id)
+            ->where("user_id", 1)
+            ->first();
+        if($adminComment){
+            $adminComment = $adminComment["content"];
+        } else {
+            $adminComment = "";
+        }
         $data = array(
             "book" => $book,
+            "comments" => $comments,
+            "adminComment" => $adminComment,
         );
         return view('books.detailBook')->with($data);
     }
