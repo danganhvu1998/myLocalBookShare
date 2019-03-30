@@ -40,8 +40,11 @@ class UsersController extends Controller
             $fileNameToStore = Auth::user()->id.".jpg";
             // Upload File
             $path = $request->file('file')->storeAs('public/user_image/', $fileNameToStore);
-
-        } 
+        }
+        User::where("id", Auth::user()->id)
+        ->update([
+            "image" => '/storage/user_image/'.$fileNameToStore,
+        ]);
         return back()->with("message", "messages.success");
     }
 

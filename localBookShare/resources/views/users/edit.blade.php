@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-4">
-            <img src="/storage/user_image/{{Auth::user()->id}}.jpg" alt="Image Cannot Be Displace" width="100%">
+            <img src="{{Auth::user()->image}}" alt="{{Auth::user()->image}} Image Cannot Be Displace" width="100%">
             Name: <b>{{Auth::user()->name}}</b><br>
             Email: <b>{{Auth::user()->email}}</b><br>
         </div>
