@@ -171,7 +171,7 @@
                 </div>
             </div>
             <div class="text-muted text-center">
-                I'm currently looking for a parttime jobs! Please check out my <a href="https://resume.io/r/LqvSTnLSM">ONLINE CV</a>. Thank you!
+                I'm currently looking for a parttime jobs! Please check out my <a target="_blank" href="https://resume.io/r/LqvSTnLSM">ONLINE CV</a>. Thank you!
             </div>
         </main>
     </div>
