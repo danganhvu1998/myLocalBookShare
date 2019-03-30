@@ -13,8 +13,6 @@
                             <h4><b class="text-info">{{$book->name}}</b></h4>
                         </a>
                         {{__("messages.author")}}: <b>{{$book->author}}</b><br>
-                        <hr>
-                        {{__("messages.quality")}}: <b>{{$book->quality}}</b><br>
                         {{__("messages.language")}}: <b>{{$book->language}}</b><br>
                         <hr>
                         @guest
