@@ -39,6 +39,8 @@ Route::get('detail_book/{book_id}', "BooksController@detailBookSite");
 
 Route::get('about', "BooksController@aboutSite");
 
+Route::get('what_new', "BooksController@newSite");
+
 # Comments Controller
 Route::post('add_comment', "CommentsController@addComment");
 

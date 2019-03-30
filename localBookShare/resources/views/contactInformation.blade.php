@@ -26,4 +26,5 @@
                 <img src="/system/line_qr.jpg" alt="" height="200" width="200">
         </div>
     </div>
+    <hr>
 @endsection

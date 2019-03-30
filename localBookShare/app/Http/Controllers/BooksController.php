@@ -61,4 +61,8 @@ class BooksController extends Controller
     public function aboutSite(){
         return view('books.about');
     }
+
+    public function newSite(){
+        return view('books.new');
+    }
 }

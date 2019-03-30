@@ -63,6 +63,11 @@
                                 <a class="dropdown-item" href="/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a href="/what_new" class="nav-link">
+                                New Update
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -164,6 +169,9 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="text-muted text-center">
+                I'm currently looking for a parttime jobs! Please check out my <a href="https://resume.io/r/LqvSTnLSM">ONLINE CV</a>. Thank you!
             </div>
         </main>
     </div>
