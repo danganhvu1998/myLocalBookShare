@@ -27,8 +27,21 @@ class UsersController extends Controller
             ->update([
                 "name" => $request->name,
                 "language" => $request->language,
-                "image" => $request->image,
             ]);
+        
+    }
+    public function editImage(request $request){
+        $this->validate($request, [
+            'file' => 'max:1999|image'
+        ]);
+
+        if($request->hasFile('file')){
+            // Filename to store
+            $fileNameToStore = Auth::user()->id.".jpg";
+            // Upload File
+            $path = $request->file('file')->storeAs('public/user_image/', $fileNameToStore);
+
+        } 
         return back()->with("message", "messages.success");
     }
 

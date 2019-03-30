@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-4">
-            <img src="{{Auth::user()->image}}" alt="Image Cannot Be Displace" width="100%">
+            <img src="/storage/user_image/{{Auth::user()->id}}.jpg" alt="Image Cannot Be Displace" width="100%">
             Name: <b>{{Auth::user()->name}}</b><br>
             Email: <b>{{Auth::user()->email}}</b><br>
         </div>
@@ -15,16 +15,18 @@
                     </div>
                     <input type="text" value="{{Auth::user()->name}}" name="name" placeholder="{{__('messages.name')}}" class="form-control">
                     {{Form::select('language', ["ja" => "Japanese", "en" => 'English', "vi" => 'Vietnamese'], Auth::user()->language)}}
+                    {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
                 </div>
-
+            {!! Form::close() !!}
+            <hr>
+            {!! Form::open(['action' => 'UsersController@editImage', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">{{__('messages.imageLink')}}</span>
+                        <span class="input-group-text">{{__('messages.image')}}</span>
                     </div>
-                    <input type="text" value="{{Auth::user()->image}}" name="image" placeholder="Ex: https://localbookshare.com/system/admin.jpeg" class="form-control">
+                    {{Form::file('file')}}
+                    {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
                 </div>
-
-                {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
             {!! Form::close() !!}
             <hr>
             {!! Form::open(['action' => 'UsersController@editPassword', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
@@ -51,3 +53,4 @@
         </div>
     </div>
 @endsection
+
