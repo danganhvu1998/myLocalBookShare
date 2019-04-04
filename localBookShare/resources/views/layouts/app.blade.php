@@ -40,7 +40,7 @@
             </a>
         </div>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/all_books/1/all') }}">
                     Local Book Share - We lend books for free!
                 </a>
@@ -64,8 +64,23 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="/what_new" class="nav-link">
-                                New Update
+                            <a href="/all_books/1/en" class="nav-link">
+                                {{ __('messages.englishBooks') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/all_books/1/vi" class="nav-link">
+                                {{ __('messages.vietnameseBooks') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/all_books/1/ja" class="nav-link">
+                                {{ __('messages.japaneseBooks') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/about" class="nav-link">
+                                {{ __('messages.aboutUs') }}
                             </a>
                         </li>
                     </ul>
