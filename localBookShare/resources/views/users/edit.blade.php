@@ -50,6 +50,8 @@
                 </div>
                 {{Form::submit(__('messages.save'), ['class' => 'btn btn-outline-primary'])}}
             {!! Form::close() !!}
+            <hr>
+            <a href="/my_info/facebook_account" class="btn btn-info">My Facebook Account</a>
         </div>
     </div>
 @endsection

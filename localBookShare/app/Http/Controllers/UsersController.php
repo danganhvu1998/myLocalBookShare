@@ -70,7 +70,25 @@ class UsersController extends Controller
                 "password" => Hash::make($request->new_pass)
             ]);
         return back()->with("message", "messages.success");
+    }
 
+    public function facebookAccountLink(){
+        $randValue = "ahihi";
+        if(Auth::user()->messenger_id==NULL){
+            $firstRand = random_int(1000000, 9999999);
+            $secondRand = random_int(1000000, 9999999);
+            $randValue = strval($firstRand).strval($secondRand);
+            User::where("id", Auth::user()->id)
+            ->update([
+                "fb_link" => $randValue
+            ]);
+        }
+        $data = array(
+            "messenger_id" => Auth::user()->messenger_id,
+            "random_link" => $randValue
+        );
+        #return $data;
+        return view("users.fbAccount")->with($data);
     }
 
 }

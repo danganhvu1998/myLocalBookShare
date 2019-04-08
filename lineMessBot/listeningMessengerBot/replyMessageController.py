@@ -11,7 +11,7 @@ def accountConfirm(message, userMessengerID):
         linkNumber = re.findall(r"\d{10,15}", message)[0]
         mysqlController.connectLinkWithID(linkNumber, userMessengerID)
         if( mysqlController.isConnected(userMessengerID) ):
-            return "Account Linked :D"
+            return "Account Linked :D\nYou can now type 'order borrow status' to see info about the book you are borrowing\nMore functions are on the way :D"
         else:
             return "Cannot confirm this number. Please check again"    
     except:
@@ -19,6 +19,8 @@ def accountConfirm(message, userMessengerID):
 
 def borrowStatus(userMessengerID):
     result = mysqlController.borrowingStatus(userMessengerID)
+    if(result==0):
+        return "You are not borrowing any book. Go to https://localbookshare.com to find the one you love :3"
     dayToSecond = 24*3600
     timeLeft = max(0, int((result[3]-time.time())/dayToSecond))
     print(result[3], time.time())

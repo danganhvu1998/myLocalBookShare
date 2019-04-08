@@ -26,6 +26,8 @@ Route::get('/contact', 'HomeController@contactInformation')->name('contact');
 # Users Controller
 Route::get('my_info/edit', "UsersController@editInformationsSite");
 
+Route::get('my_info/facebook_account', "UsersController@facebookAccountLink");
+
 Route::post('my_info/edit', "UsersController@editInformations");
 
 Route::post('my_info/edit_password', "UsersController@editPassword");

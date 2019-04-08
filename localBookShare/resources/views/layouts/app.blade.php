@@ -51,18 +51,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <span>{{ __('messages.books') }}</span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/all_books/1/all">{{ __('messages.allBooks') }}</a>
-                                <a class="dropdown-item" href="/all_books/1/vi">{{ __('messages.vietnameseBooks') }}</a>
-                                <a class="dropdown-item" href="/all_books/1/en">{{ __('messages.englishBooks') }}</a>
-                                <a class="dropdown-item" href="/all_books/1/ja">{{ __('messages.japaneseBooks') }}</a>
-                            </div>
-                        </li>
+                        @if (!Auth::user()->messenger_id)
+                            <li class="nav-item">
+                                <a href="/my_info/facebook_account" class="nav-link">
+                                    Connect with Facebook
+                                </a>
+                            </li>    
+                        @endif
                         <li class="nav-item">
                             <a href="/all_books/1/en" class="nav-link">
                                 {{ __('messages.englishBooks') }}
