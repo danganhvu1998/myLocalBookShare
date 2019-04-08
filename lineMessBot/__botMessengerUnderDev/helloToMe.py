@@ -34,5 +34,6 @@ if __name__ == "__main__":
     #    autoReply("Dm Tuan, https://discord.gg/qVyQKTM")
     #    time.sleep(5)
     #print(client.searchForUsers("foyripvgf", limit=1)[0])
-    print(client.fetchUserInfo("100008335771493"))
+    print(client.fetchUnseen())
+    print(client.fetchAllUsers())
     #User(uid='100008335771493', type=ThreadType.USER, photo='https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-1/p50x50/49686387_2238342953120209_2715401680286908416_n.jpg?_nc_cat=107&_nc_ht=scontent-nrt1-1.xx&oh=2aef4f3382f081e9afcfa2779708e835&oe=5D42066B', name='Đặng Anh Vũ', last_message_timestamp=None, message_count=None, plan=None, url='https://www.facebook.com/foyripvgf', first_name='Vũ', last_name='Đặng Anh', is_friend=True, gender='male_singular', affinity=None, nickname=None, own_nickname=None, color=None, emoji=None)

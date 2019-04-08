@@ -18,6 +18,16 @@ class EchoBot(Client):
             elif(len(message_object.mentions)>0):
                 message = replyMessageController.replyGroupMessage(message_object.text, thread_id)
                 self.send(Message(text=message), thread_id=thread_id, thread_type=thread_type)
+    
+    def onFriendRequest(self, from_id, msg):
+        print("\n\n\n\n")
+        print(from_id)
+        print("\n\n\n\n")
+        self.friendConnect(from_id)
+        welcomeText = """
+            Welcome to LocalBookShare! You can rend book from us, for FREE!\nTo confirm account, type "order account confirm confirm_number"
+        """
+        self.send(Message(text="Welcome to LocalBookShare! We rend book for FREE!"), thread_id=from_id, thread_type=ThreadType.USER)
 
 fhand = open("../.env", "r")
 loginInfos = re.findall("<(.+)>", fhand.read())
