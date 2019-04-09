@@ -8,6 +8,8 @@ import time
 
 def accountConfirm(message, userMessengerID):
     try:
+        if( mysqlController.isConnected(userMessengerID) ):
+            return "This account has already linked to localbookshare.com!"    
         linkNumber = re.findall(r"\d{10,15}", message)[0]
         mysqlController.connectLinkWithID(linkNumber, userMessengerID)
         if( mysqlController.isConnected(userMessengerID) ):

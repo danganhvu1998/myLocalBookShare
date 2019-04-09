@@ -25,7 +25,7 @@ class EchoBot(Client):
         print("\n\n\n\n")
         self.friendConnect(from_id)
         welcomeText = """
-            Welcome to LocalBookShare! You can rend book from us, for FREE!\nTo confirm account, type "order account confirm confirm_number"
+            Welcome to LocalBookShare! You can rend book from us at https://localbookshare.com, for FREE!\nTo confirm account, type "order account confirm confirm_number"
         """
         self.send(Message(text="Welcome to LocalBookShare! We rend book for FREE!"), thread_id=from_id, thread_type=ThreadType.USER)
 
