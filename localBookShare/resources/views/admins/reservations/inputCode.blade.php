@@ -19,7 +19,7 @@
                 User Name: <b>{{$reservation->user_name}}</b><br>
                 User Email: <b>{{$reservation->email}}</b><br><br>
                 Time Start: <b>{{$reservation->created_at}}</b><br><br>
-                @if ($reservation->borrow_time<$timeCheck)
+                @if ($reservation->return_time<$timeCheck)
                     <b class="text-danger bg-warning">OVERDUE OVERDUE OVERDUE</b></div>
                     <div class="col-md-2 bg-danger">
                         <br><br>

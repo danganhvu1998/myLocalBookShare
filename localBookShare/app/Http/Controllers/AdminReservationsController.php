@@ -60,8 +60,7 @@ class AdminReservationsController extends Controller
             ->join("books", "books.id", "=", "reservations.book_id")
             ->select("reservations.*", "books.name as book_name", "books.image as book_image", "users.name as user_name", "users.email", "users.image as user_image")
             ->get();
-        $_20DaysToSec = 3600*24*20;
-        $timeCheck = time()-$_20DaysToSec;
+        $timeCheck = time();
         $data = array(
             "currReservations" => $currReservations,
             "timeCheck" => $timeCheck,
@@ -72,8 +71,8 @@ class AdminReservationsController extends Controller
 
     public function reservationNextStatus($reservation){
         $currTime = time();
+        $_21DaysToSec = 1814400;
         if($reservation->status==1){
-            $_21DaysToSec = 1814400;
             #$_21DaysToSec = 0;
             Book::where("id", $reservation->book_id)
                 ->update([
@@ -99,7 +98,7 @@ class AdminReservationsController extends Controller
         Reservation::where("id", $reservation->id)
             ->update([
                 "status" => $reservation->status+1,
-                "return_time" => $currTime,
+                "return_time" => $currTime+$_21DaysToSec,
             ]);
     }
 

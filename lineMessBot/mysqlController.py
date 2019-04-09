@@ -3,7 +3,10 @@ import re
 
 # Take username, password, server from .env
 result = {}
-loginInfoFile = open("../.env").read()
+try:
+    loginInfoFile = open("../.env").read()
+except:
+    loginInfoFile = open(".env").read()
 loginInfo = re.findall(r"\{\{(.+)\}\}", loginInfoFile)
 
 mydb = mysql.connector.connect(
