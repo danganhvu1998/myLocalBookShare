@@ -22,16 +22,25 @@ def accountConfirm(message, userMessengerID):
 def borrowStatus(userMessengerID):
     result = mysqlController.borrowingStatus(userMessengerID)
     if(result==0):
-        return "You are not borrowing any book. Go to https://localbookshare.com to find the one you love :3"
+        return "You are not borrowing any book. Contact admin to take reserving book. Or go to https://localbookshare.com and find the one you love :3"
     dayToSecond = 24*3600
     timeLeft = max(0, int((result[3]-time.time())/dayToSecond))
-    print(result[3], time.time())
     replyMessage = """
         \nBook Name: {}\nBook Link: https://localbookshare.com/detail_book/{}\nTime Left: {} days
     """.format(result[1], result[2], timeLeft)
     if(timeLeft==0):
         replyMessage = replyMessage+"\nPlease return it as soon as possible!"
     return replyMessage
+
+def allFunctionIntro():
+    helpStr = ""
+    funcs = {}
+    funcs["order borrow status"] = "Show information about your borrowing book and when you have to return it"
+    funcs["order account confirm confirm_number"] = "Connect your facebook account with your localbookshare.com account"
+    funcs["help"] = "Show all what I can do! Always happy to help :smiling_face:"
+    for key in funcs:
+        helpStr = helpStr+key+": "+funcs[key]+"\n"
+    return helpStr
 
 def replyGroupMessage(message, threadID):
     return "huhu"
@@ -43,8 +52,12 @@ def replyUserMessage(message, threadID):
             return accountConfirm(message, threadID)
         elif("borrow status" in message):
             return borrowStatus(threadID)
-    return "wut?"
+    elif message == "help":
+        return allFunctionIntro()
+    return "This is localBookShare bot. You can rend book from us at https://localbookshare.com, for FREE!.\n Type \"help\" to see what I can do :D"
 
 
 if __name__ == "__main__":
-    print(borrowStatus("100008335771493"))
+    message = "help"
+    threadID = "100008335771493"
+    print(replyUserMessage(message, threadID))

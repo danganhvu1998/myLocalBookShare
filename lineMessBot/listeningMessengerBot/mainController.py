@@ -27,7 +27,7 @@ class EchoBot(Client):
         welcomeText = """
             Welcome to LocalBookShare! You can rend book from us at https://localbookshare.com, for FREE!\nTo confirm account, type "order account confirm confirm_number"
         """
-        self.send(Message(text="Welcome to LocalBookShare! We rend book for FREE!"), thread_id=from_id, thread_type=ThreadType.USER)
+        self.send(Message(text=welcomeText), thread_id=from_id, thread_type=ThreadType.USER)
 
 fhand = open("../.env", "r")
 loginInfos = re.findall("<(.+)>", fhand.read())
