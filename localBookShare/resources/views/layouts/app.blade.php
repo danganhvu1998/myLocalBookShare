@@ -21,24 +21,6 @@
 </head>
 <body>
     <div id="app">
-        <div class="text-center bg-light">
-            <a href="/about">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img src="/images/needHelp.jpg" alt="" height="100" width="100%">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="/images/givebook.png" alt="" height="100" width="100%">
-                    </div>
-                    <div class="col-md-2">
-                        <img src="/images/giveBook.jpg" alt="" height="100" width="100%">
-                    </div>
-                    <div class="col-md-3">
-                        <img src="/images/needDesigner.png" alt="" height="100" width="100%">
-                    </div>
-                </div>
-            </a>
-        </div>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/all_books/1/all') }}">
@@ -51,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (!isset(Auth::user()->messenger_id))
+                        @if (isset(Auth::user()->messenger_id))
                             <li class="nav-item">
                                 <a href="/my_info/facebook_account" class="nav-link text-primary">
                                     <b>Connect with Facebook</b>
@@ -71,11 +53,6 @@
                         <li class="nav-item">
                             <a href="/all_books/1/ja" class="nav-link">
                                 {{ __('messages.japaneseBooks') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/about" class="nav-link">
-                                {{ __('messages.aboutUs') }}
                             </a>
                         </li>
                     </ul>
@@ -179,9 +156,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="text-muted text-center">
-                I'm currently looking for a parttime jobs! Please check out my <a target="_blank" href="https://resume.io/r/LqvSTnLSM">ONLINE CV</a>. Thank you!
             </div>
         </main>
     </div>
