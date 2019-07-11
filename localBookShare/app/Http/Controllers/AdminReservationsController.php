@@ -71,9 +71,9 @@ class AdminReservationsController extends Controller
 
     public function reservationNextStatus($reservation){
         $currTime = time();
-        $_21DaysToSec = 1814400;
+        $_41DaysToSec = 3542400;
         if($reservation->status==1){
-            #$_21DaysToSec = 0;
+            #$_41DaysToSec = 0;
             Book::where("id", $reservation->book_id)
                 ->update([
                     "status" => 1
@@ -83,7 +83,7 @@ class AdminReservationsController extends Controller
                 ->update([
                     "status" => 1,
                 ]);
-            if($currTime-$reservation->borrow_time<$_21DaysToSec){
+            if($currTime-$reservation->borrow_time<$_41DaysToSec){
                 if($user->point<15){
                     User::where("id", $reservation->user_id)
                         ->increment('point');
@@ -98,7 +98,7 @@ class AdminReservationsController extends Controller
         Reservation::where("id", $reservation->id)
             ->update([
                 "status" => $reservation->status+1,
-                "return_time" => $currTime+$_21DaysToSec,
+                "return_time" => $currTime+$_41DaysToSec,
             ]);
     }
 
