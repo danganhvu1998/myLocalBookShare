@@ -33,13 +33,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (isset(Auth::user()->messenger_id))
-                            <li class="nav-item">
-                                <a href="/my_info/facebook_account" class="nav-link text-primary">
-                                    <b>Connect with Facebook</b>
-                                </a>
-                            </li>    
-                        @endif
                         <li class="nav-item">
                             <a href="/all_books/1/en" class="nav-link">
                                 {{ __('messages.englishBooks') }}
